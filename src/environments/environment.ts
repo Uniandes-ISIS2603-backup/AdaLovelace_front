@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  apiURL: 'http://localhost:8080/s4_empleos-api/api'
+  apiURL: 'http://172.24.41.111:8080/frontstepbystep-api/api'
 };
