@@ -4,32 +4,29 @@ import 'rxjs/add/operator/filter';
 
 
 import {Sale} from '../../sale/sale';
-import {SaleService} from '../../sale/sale.service';
+import {SaleService} from "../sale.service";
 @Component({
     selector: 'app-sale-list',
     templateUrl: './sale-list.component.html',
     styleUrls: ['./sale-list.component.css']
 })
-export class BookListComponent implements OnInit {
+export class SaleListComponent implements OnInit {
 
-    /**
-    * The list of books to display
-    */
-    @Input() books: Book[];
+ 
+    sales: Sale[];
 
     /**
     * The component's constructor
     */
-    constructor(private bookService: BookService, private route: ActivatedRoute) {}
+    constructor(private saleService: SaleService, private route: ActivatedRoute) {}
 
-    allbooks: string = 'no';
     /**
     * This method retrieves all the books in the Bookstore to show them in the list
     */
     getBooks(): void {
-        this.bookService.getBooks()
-            .subscribe(books => {
-                this.books = books;
+        this.saleService.getSales()
+            .subscribe(sales => {
+                this.sales = sales;
             });
     }
 
@@ -37,19 +34,7 @@ export class BookListComponent implements OnInit {
     * The method which initializes the component
     */
     ngOnInit() {
-        this.route.queryParams
-            .filter(params => params.allbooks)
-            .subscribe(params => {
-                console.log(params);
-
-                this.allbooks = params.allbooks;
-                console.log(this.allbooks);
-            });
-        if (this.allbooks == 'yes') {
-            console.log("allbooks");
-
-            this.getBooks();
-        }
+      this.getBooks;
     }
 
 }
