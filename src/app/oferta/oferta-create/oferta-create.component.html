@@ -1,0 +1,176 @@
+<form [formGroup]="clientForm" (ngSubmit)="!clientForm.invalid && createOferta(clientForm.value)">
+
+	<div class="form-group mx-sm-3 mb-2">
+		<label for="nombre">
+      Name
+    </label>
+		<input novalidate
+    id="nombre"
+    class="form-control"
+      formControlName="nombre"
+      placeholder="Nombre de la oferta">
+
+		
+	</div>
+
+	<div class="form-group  mx-sm-3 mb-2">
+		<label for="categoria">
+      Categoria
+    </label>
+		
+
+     <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01">Options</label>
+        </div>
+        <select class="custom-select" formControlName="categoria" id="categoria">
+          <option selected>Choose...</option>
+          <option value="Ventas">Ventas</option>
+          <option value="Logistica">Logistica</option>
+          <option value="Transporte">Transporte</option>
+          <option value="Administracion">Administración</option>
+          <option value="Educacion">Educación</option>
+          <option value="Publicidad">Publicidad</option>
+          <option value="Investigacion">Investigación</option>
+          <option value="Diseño / Artes">Diseño / Artes</option>
+          <option value="Legal">Legal</option>
+          <option value="Otros">Otros</option>
+          
+        </select>
+      </div>
+
+		
+  </div>
+  <div class="form-group  mx-sm-3 mb-2">
+		<label for="descripcion">
+      Descripcion requerida
+    </label>
+    <textarea rows="4" cols="50" id="descripcion" type="text"
+    class="form-control"
+    formControlName="descripcion"
+    placeholder="Descripcion de la oferta">
+        </textarea>
+
+		
+		
+  </div>
+
+  <input type="checkbox" id="estaAbierta" formControlName="estaAbierta"/>
+
+  <div class="form-group  mx-sm-3 mb-2">
+		<label for="horario">
+      Horario
+    </label>
+		<input id="horario" type="text"
+     class="form-control"
+     formControlName="horario"
+     placeholder="Horario de la oferta">
+
+		
+  </div>
+
+  <div class="form-group  mx-sm-3 mb-2">
+		<label for="horasDeTrabajo">
+      Horas de Trabajo
+    </label>
+		<input id="horasDeTrabajo" type="number" min="0" oninput="this.value = Math.abs(this.value)"
+     class="form-control"
+     formControlName="horasDeTrabajo"
+     placeholder="horasDeTrabajo de la oferta">
+
+		
+  </div>
+
+  <div class="form-group  mx-sm-3 mb-2">
+		<label for="numeroDeVacantes">
+      numero de vacantes
+    </label>
+		<input id="numeroDeVacantes" type="number" min="0" oninput="this.value = Math.abs(this.value)"
+     class="form-control"
+     formControlName="numeroDeVacantes"
+     placeholder="numeroDeVacantes de la oferta">
+
+		
+  </div>
+
+  <div class="form-group  mx-sm-3 mb-2">
+		<label for="pagoPorHora">
+      pago por hora
+    </label>
+		<input id="pagoPorHora" type="number" min="0" oninput="this.value = Math.abs(this.value)"
+     class="form-control"
+     formControlName="pagoPorHora"
+     placeholder="pagoPorHora de la oferta">
+
+		
+  </div>
+
+ 
+
+		
+  
+
+  <div class="form-group  mx-sm-3 mb-2">
+		<label for="requisitos">
+      requisitos
+    </label>
+		<input id="requisitos" type="text" 
+     class="form-control"
+     formControlName="requisitos"
+     placeholder="requisitos de la oferta">
+
+		
+  </div>
+  <div class="form-group  mx-sm-3 mb-2">
+		<label for="rutaImagen">
+      rutaImagen
+    </label>
+		<input id="rutaImagen" type="text"
+     class="form-control"
+     formControlName="rutaImagen"
+     placeholder="rutaImagen de la oferta">
+
+		
+  </div>
+
+
+
+  <div class="form-group  mx-sm-3 mb-2">
+		<label for="tipoOferta">
+      tipoOferta
+    </label>
+    <select class="form-control" id="tipoOferta" formControlName="tipoOferta" type="number"  [(ngModel)]="tipoOfertaD" name="college_name" required>
+        <option value="1">Estandar</option>
+        <option value="2">Express</option>
+      </select>
+		
+
+		
+  </div>
+
+  <div class="form-group  mx-sm-3 mb-2" *ngIf="tipoOfertaD === '2'">
+      <label for="tiempoMaximoAplicacion">
+        tiempoMaximoAplicacion
+      </label>
+      <input id="tiempoMaximoAplicacion" type="number" min="0" oninput="this.value = Math.abs(this.value)"
+       class="form-control"
+       formControlName="tiempoMaximoAplicacion"
+       placeholder="tiempoMaximoAplicacion de la oferta">
+  
+      
+    </div>
+    <div class="form-group  mx-sm-3 mb-2" *ngIf="tipoOfertaD === '2'">
+        <label for="porcentajePagoAdicional">
+          porcentaje
+        </label>
+        <input id="porcentajePagoAdicional" type="number" min="0" oninput="this.value = Math.abs(this.value)"
+         class="form-control"
+         formControlName="porcentajePagoAdicional"
+         placeholder="porcentajePagoAdicional de la oferta">
+  
+    </div>
+    <button class="btn btn-primary" type="submit">Create</button>
+    
+
+
+</form>
