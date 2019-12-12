@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ADA</string>
+    <string name="ada_api_url">localhost</string>
+</resources>
