@@ -44,8 +44,7 @@ export class SaleCreateComponent{
     * Creates a new book
     */
    createSale(): Sale {
-    let dateB: Date = new Date(this.sale.saleDate.year, this.sale.saleDate.month - 1, this.sale.saleDate.day);
-    this.sale.saleDate = this.dp.transform(dateB, 'yyyy-MM-dd');
+    
     this.saleService.createSale(this.sale)
         .subscribe(sale => {
             this.sale.id = sale.id;
