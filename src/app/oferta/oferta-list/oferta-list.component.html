@@ -1,0 +1,149 @@
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <app-oferta-create></app-oferta-create>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+<div id="container2" class="container2">
+
+    <div class="container overflow-auto">
+        <div class="row">
+            <div class="card col-12" style="background-color:  #353436;border-color:  #353436;"id="numof">
+
+                <h4 *ngIf="offers == undefined" class="card-text blanco" >Ofertas disponibles: {{numOfertas()}}</h4>
+                <h4 *ngIf="offers != undefined" class="card-text blanco"  >Ofertas a las que has aplicado: {{numOfertas()}}</h4>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div *ngIf="offers == undefined" class="col-3">
+                <div class="card" style="width: 95%;border-color: #353436;">
+                    <div class="card-header " style="background-color: #FFC14F;">
+                        <p style="color:white; font-size:20px;background-color: #FFC14F;">Filtros</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="input-group mb-3">
+
+                            <input type="text" id="filtro" class="form-control" placeholder="Buscar"
+                                aria-label="Username" aria-describedby="basic-addon1"><br><br>
+                            <button type="button" class="btn btn-block btn-dark"
+                                (click)="filtrarOnApp1()">Buscar</button>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="card" style="width: 95%;border-color:  #353436;">
+
+                    <div class="card-header "style="background-color: #FFC14F;">
+                        <p style="color:white; font-size:20px;">Categorias</p>
+                    </div>
+                    <div class="card-body" id="scroll">
+                        <ul class="list-group list-group-flush">
+                            <div *ngFor="let i of carUnicas() ">
+
+                                    <li class="list-group-item"  ><a routerLink="{{i}}">{{i}}({{contarCat(i)}})</a></li>
+
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-9 ">
+                <nav *ngIf="offers == undefined" class="nav  orden" style="background-color: #FFC14F;">
+
+                    <div class="col-2">
+                        <p class="nav-link blanco" style="white-space: nowrap">Ordenar por: </p>
+                    </div>
+                    <div class="col-1"><a class="nav-link active blanco" href="#">Fecha</a></div>
+                    <div class="col-1"><a class="nav-link blanco" href="#">Pago</a></div>
+                    <div class="col-1"><a class="nav-link blanco" href="#">Horas</a></div>
+                    <div class="col-3">{{tipo}}</div>
+                    <div class="col-4">
+                        <div class="crearOf" *ngIf="tipo == 'Contratista'">
+                                <button type="button" style="white-space: nowrap" class="btn btn-primary btn-md btn-block"
+                                id="btn-crear" data-toggle="modal" data-target="#exampleModalLong">
+                                Crear Oferta
+                            </button>
+                        </div>
+                        
+                    </div>
+
+
+
+                </nav>
+                <div *ngFor="let e of ofertas">
+                    <div class="card " *ngIf="e.tipoOferta===1">
+
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-9">
+                                    <h4 class="card-text"><a class="nav-link " routerLink="/oferta/{{e.id}}"
+                                            routerLinkActive="active">{{e.nombre}}</a></h4>
+                                </div>
+                                <div class="col-3 ">
+                                    <img class="imagen-peque" src="{{e.rutaImagen}}">
+
+                                </div>
+                            </div>
+                            <p class="card-text">{{e.descripcion.substr(0,244)}}<a style="color:blue;cursor:pointer;" (click)="goTo(e.id)"
+                                    >... Ver mas </a></p>
+
+                        </div>
+
+
+
+                    </div>
+                    <div class="card  border-danger" *ngIf="e.tipoOferta===2">
+                        <div class="card-header bg-danger blanco">Oferta Express</div>
+                        <div class="card-body">
+                                <div class="row">
+                                    <div class="col-9">
+                                        <h4 class="card-text"><a class="nav-link " routerLink="/ofertas/{{e.id}}"
+                                                routerLinkActive="active">{{e.nombre}}</a></h4>
+                                    </div>
+                                    <div class="col-3 ">
+                                        <img class="imagen-peque" src="{{e.rutaImagen}}">
+    
+                                    </div>
+                                </div>
+                                <p class="card-text">{{e.descripcion.substr(0,244)}}<a routerLink="/ofertas/{{e.id}}"
+                                        routerLinkActive="active">... Ver mas </a></p>
+    
+                            </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        
+
+    </div>
+</div>
+
+
+      
+     

@@ -1,0 +1,18 @@
+[
+  {
+    "categoria": "lala",
+    "descripcion": "dsdfsdfsdfsdfsdfds fdsfdsfds",
+    "estaAbierta": true,
+    "horario": "sdsdf",
+    "horasDeTrabajo": 20.0,
+    "id": 1,
+    "nombre": "hsdaj",
+    "numeroDeVacantes": 2,
+    "pagoPorHora": 10000.0,
+    "porcentajePagoAdicional": 15,
+    "requisitos": "asdada",
+    "rutaImagen": "dfdfs",
+    "tiempoMaximoAplicacion": 5,
+    "tipoOferta": 1
+  }
+]

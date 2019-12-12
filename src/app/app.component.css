@@ -1,0 +1,17 @@
+p {
+  font-family: Lato;
+}
+
+
+.navbar{
+    background: #584B4F;
+} 
+
+a {
+    color: black;
+}
+
+@font-face {
+    font-family: caviardreamsbold;
+    src: url(./font/caviardreamsbold.ttf);
+}
