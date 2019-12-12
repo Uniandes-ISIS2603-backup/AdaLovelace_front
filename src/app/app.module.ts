@@ -40,12 +40,14 @@ import { AutenticacionModule } from "./autenticacion/autenticacion.module";
 import { Token } from '@angular/compiler';
 
 import {BookModule} from "./book/book.module";
+import { BookDetailComponent } from './book/book-detail/book-detail.component';
 
 
 @NgModule({
 
     declarations: [
         AppComponent,
+        BookDetailComponent,
 
 
     ],
