@@ -28,6 +28,7 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.BooksViewHol
         private SimpleDraweeView bookImage;
         private View bookContainer;
         private View add;
+        private TextView bookPrice;
 
         private BooksViewHolder(View view) {
             super(view);
@@ -35,6 +36,7 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.BooksViewHol
             bookImage = view.findViewById(R.id.book_image);
             bookContainer = view.findViewById(R.id.book_container);
             add = view.findViewById(R.id.add);
+            bookPrice = view.findViewById(R.id.book_price);
         }
     }
 
@@ -55,6 +57,8 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.BooksViewHol
 
         Uri uri = Uri.parse(mDataset[position].getImage());
         holder.bookImage.setImageURI(uri);
+        String s = "" + mDataset[position].getPrice();
+        holder.bookPrice.setText(s);
 
         holder.bookContainer.setOnClickListener(new View.OnClickListener() {
             @Override

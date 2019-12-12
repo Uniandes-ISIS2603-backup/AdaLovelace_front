@@ -44,6 +44,9 @@ public class Book implements Serializable {
     @SerializedName("name")
     @Expose
     private String name;
+    @SerializedName("price")
+    @Expose
+    private Integer price;
     @SerializedName("publishingdate")
     @Expose
     private String publishingdate;
@@ -185,5 +188,10 @@ public class Book implements Serializable {
         this.reviews = reviews;
     }
 
-
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
+    public Integer getPrice() {
+        return price;
+    }
 }

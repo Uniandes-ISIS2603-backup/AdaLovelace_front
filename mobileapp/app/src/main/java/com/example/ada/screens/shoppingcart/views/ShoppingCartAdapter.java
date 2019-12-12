@@ -27,6 +27,7 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
         private SimpleDraweeView bookImage;
         private View bookContainer;
         private View delete;
+        private TextView bookPrice;
 
         private ShoppingCartViewHolder(View view) {
             super(view);
@@ -34,6 +35,7 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
             bookImage = view.findViewById(R.id.book_image);
             bookContainer = view.findViewById(R.id.book_container);
             delete = view.findViewById(R.id.delete);
+            bookPrice = view.findViewById(R.id.book_price);
         }
     }
 
@@ -55,6 +57,8 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
         Uri uri = Uri.parse(mDataset[position].getImage());
         holder.bookImage.setImageURI(uri);
 
+        String s = "" + mDataset[position].getPrice();
+        holder.bookPrice.setText(s);
         holder.bookContainer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
