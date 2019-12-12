@@ -30,8 +30,20 @@ import { SignUpComponent } from "../autenticacion/sign-up-component/sign-up-comp
 
 import { LandComponent } from "../land/land-component/land.component";
 
+import {BookListComponent} from "../book/book-list/book-list.component";
+
 
 const routes: Routes = [
+
+  {
+    path:"books",
+    children:[
+      {
+        path:"list",
+        component: BookListComponent
+      }
+    ]
+  },
   {
     path: "land",
     component: LandComponent

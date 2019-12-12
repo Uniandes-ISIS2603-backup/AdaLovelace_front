@@ -39,12 +39,18 @@ import { LandModule } from "./land/land.module";
 import { AutenticacionModule } from "./autenticacion/autenticacion.module";
 import { Token } from '@angular/compiler';
 
+import {BookModule} from "./book/book.module";
+
+
 @NgModule({
 
     declarations: [
         AppComponent,
+
+
     ],
     imports: [
+        BookModule,
         BrowserModule,
         CalificacionesModule,
         FacturaModule,
